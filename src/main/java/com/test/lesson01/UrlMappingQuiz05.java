@@ -14,6 +14,7 @@ public class UrlMappingQuiz05 extends HttpServlet{
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
+		//주석으로 내용 추가 
 		
 		/*if(request.getParameter("number")!=null && !request.getParameter("number").isEmpty()) {
 			int num=Integer.parseInt(request.getParameter("number"));
