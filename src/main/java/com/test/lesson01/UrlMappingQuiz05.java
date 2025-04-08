@@ -16,6 +16,7 @@ public class UrlMappingQuiz05 extends HttpServlet{
 		PrintWriter out=response.getWriter();
 		//주석으로 내용 추가 
 		
+		//20250408 주석 추가
 		/*if(request.getParameter("number")!=null && !request.getParameter("number").isEmpty()) {
 			int num=Integer.parseInt(request.getParameter("number"));
 			for(int i=1;i<10;i++) {
