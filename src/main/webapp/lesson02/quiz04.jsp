@@ -9,16 +9,26 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
 <meta charset="UTF-8">
-<title>GET Method(폼 태그)</title>
+<title>POST Method(폼 태그)</title>
 </head>
 <body>
-<form action='/lesson02/quiz03_1.jsp' method="get">
-	<h1>체격조건입력</h1>
-	<div class='d-flex align-items-end'>
-		<input type=text name='height' class="form-control col-2" placeholder='키를 입력하세요'></input>cm
-		<input type=text name='weight' class="form-control col-2 ml-3" placeholder='몸무게를 입력하세요'></input>kg
-		<input type='submit' value='계산' class="btn btn-info ml-3"></input>
-	</div>
+<%
+/* cm를 입력받으면 인치, 야드, 피트, 미터의 단위로 변환하는 POST Method 폼을 submit 하세요.
+체크박스에 선택된 단위들을 변환 결과 화면에서 출력합니다.
+단위 변환 공식은 검색을 활용하세요. */
+%>
+<form action="/lesson02/quiz04_1.jsp" method="post">
+<div class="container">
+	<h1>길이 변환</h1>
+	<input type=text name='length' ></input>cm <br/>
+	인치<input type=checkbox name='inch'>
+	야드<input type=checkbox name='yard'>
+	피트<input type=checkbox name='feet'>
+	미터<input type=checkbox name='meter'><br/>
+	
+	<input type='submit' value='변환하기' class="btn btn-success"></input>
+</div>
 </form>
+
 </body>
 </html>
