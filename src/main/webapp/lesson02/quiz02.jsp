@@ -12,10 +12,10 @@
 <title>GET Method</title>
 </head>
 <body>
-	<div style='width:500px;margin-left:50px;margin-top:100px'>
-		<h1>날짜 시간 확인</h1><br/>
-		<a href="/lesson02/quiz02_1.jsp?scope=time"  class="btn btn-success">현재 시간 확인</a>
-		<a href="/lesson02/quiz02_1.jsp?scope=date"  class="btn btn btn-info">현재 날짜 확인</a>
+	<div style='width:500px;margin-left:50px;margin-top:50px'>
+		<h1 class="mb-4">날짜 시간 확인</h1>
+		<a href="/lesson02/quiz02_1.jsp?scope=time"  class="btn btn-info">현재 시간 확인</a>
+		<a href="/lesson02/quiz02_1.jsp?scope=date"  class="btn btn-success">현재 날짜 확인</a>
 	</div>
 </body>
 </html>
