@@ -9,7 +9,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
 <meta charset="UTF-8">
-<title>POST Method(폼 태그)</title>
+<title>길이변환 결과</title>
 </head>
 <body>
 <%
@@ -18,10 +18,28 @@
 단위 변환 공식은 검색을 활용하세요. */
 String tranStr="";
 double length=0;
+String[] types =request.getParameterValues("type");
+
 if(!request.getParameter("length").isEmpty())
 	length=Double.parseDouble(request.getParameter("length"));
 
-if(request.getParameter("inch")!=null){
+if(types!=null){
+	for(String type : types){
+		if(type.equals("inch")){
+			tranStr+=length/2.54 +"in<br/>";
+		}
+		else if(type.equals("yard")){
+			tranStr+=length/91.44 +"ya<br/>";
+		}
+		else if(type.equals("feet")){
+			tranStr+=length/30.48 +"ft<br/>";
+		}
+		else if(type.equals("meter")){
+			tranStr+=length/100 +"m<br/>";
+		}
+	}
+}
+/* if(request.getParameter("inch")!=null){
 	if(request.getParameter("inch").equals("on"))
 		tranStr+=length/2.54 +"in<br/>";
 }
@@ -36,7 +54,7 @@ if(request.getParameter("feet")!=null){
 if(request.getParameter("meter")!=null){
 	if(request.getParameter("meter").equals("on"))
 		tranStr+=length/100 +"m<br/>";
-}
+} */
 %>
 <h1>길이변환 결과</h1>
 <%=request.getParameter("length") %>cm

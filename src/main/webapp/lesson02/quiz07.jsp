@@ -9,27 +9,17 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
 <meta charset="UTF-8">
-<title>길이변환</title>
+<title>배탈의 민족 메뉴 검색</title>
 </head>
 <body>
 <div class="container">
-<%
-/* cm를 입력받으면 인치, 야드, 피트, 미터의 단위로 변환하는 POST Method 폼을 submit 하세요.
-체크박스에 선택된 단위들을 변환 결과 화면에서 출력합니다.
-단위 변환 공식은 검색을 활용하세요. */
-%>
-	<form method="post" action="/lesson02/quiz04_1.jsp" >
-		<h1>길이 변환</h1>
+	<form method="post" action="/lesson02/quiz07_1.jsp" >
+		<h1>메뉴검색</h1>
 		<div class='d-flex align-items-end'>
-			<input type=text name='length' class='form-control col-2'></input><span>cm</span> <br/>
+			<input type=text name="searchmenu" class='form-control col-2'></input>
+			<label class='mt-1'><input type=checkbox name="type" value='4.0' class='ml-2'>4점이하 제외</label>
 		</div>
-		<div class='d-flex align-items-end'>
-			<label>인치<input type=checkbox name="type" value='inch'></label>
-			<label>야드<input type=checkbox name="type" value='yard'></label>
-			<label>피트<input type=checkbox name="type" value='feet'></label>
-			<label>미터<input type=checkbox name="type" value='meter'></label>
-		</div>
-		<input type='submit' value='변환하기' class="btn btn-success"></input>
+		<input type='submit' value='검색' class="btn btn-success mt-3"></input>
 	</form>
 </div>
 </body>
