@@ -21,7 +21,8 @@ Map<String, Object> map = new HashMap<String, Object>() {
         put("title", "아몬드"); 
         put("author", "손원평"); 
         put("publisher", "창비");
-        put("image", "http://image.kyobobook.co.kr/images/book/xlarge/267/x9788936434267.jpg");
+        //put("image", "http://image.kyobobook.co.kr/images/book/xlarge/267/x9788936434267.jpg");
+        put("image", "https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791198363503.jpg");
     } 
 };
 list.add(map);
@@ -32,7 +33,8 @@ map = new HashMap<String, Object>() {
         put("title", "사피엔스"); 
         put("author", "유발 하라리"); 
         put("publisher", "김영사");
-        put("image", "http://image.kyobobook.co.kr/images/book/xlarge/464/x9788934972464.jpg");
+       // put("image", "http://image.kyobobook.co.kr/images/book/xlarge/464/x9788934972464.jpg");
+        put("image", "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788934972464.jpg");
     } 
 };
 list.add(map);
@@ -43,7 +45,8 @@ map = new HashMap<String, Object>() {
         put("title", "코스모스"); 
         put("author", "칼 세이건"); 
         put("publisher", "사이언스북");
-        put("image", "http://image.kyobobook.co.kr/images/book/xlarge/892/x9788983711892.jpg");
+        //put("image", "http://image.kyobobook.co.kr/images/book/xlarge/892/x9788983711892.jpg");
+        put("image", "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788983711892.jpg");
     } 
 };
 list.add(map);
@@ -54,7 +57,8 @@ map = new HashMap<String, Object>() {
         put("title", "나미야 잡화점의 기적"); 
         put("author", "히가시노 게이고"); 
         put("publisher", "현대문학");
-        put("image", "http://image.kyobobook.co.kr/images/book/xlarge/194/x9788972756194.jpg");
+        //put("image", "http://image.kyobobook.co.kr/images/book/xlarge/194/x9788972756194.jpg");
+        put("image", "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791167901484.jpg");
     } 
 };
 list.add(map);
@@ -74,7 +78,7 @@ list.add(map);
 		    for(Map<String,Object> item :list){%>
 		    	<tr>
 					<td><%= item.get("id") %></td>
-					<td><img src='<%= item.get("image") %>'></td>
+					<td><img src='<%= item.get("image") %>' style='width:50px' alt="책표지"></td>
 					<td><a href='/lesson02/quiz08_1.jsp?id=<%= item.get("id") %>'><%= item.get("title") %></a></td>
 				</tr>
 		    <%}%>

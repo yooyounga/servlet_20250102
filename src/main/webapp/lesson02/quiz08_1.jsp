@@ -21,7 +21,7 @@ Map<String, Object> map = new HashMap<String, Object>() {
         put("title", "아몬드"); 
         put("author", "손원평"); 
         put("publisher", "창비");
-        put("image", "http://image.kyobobook.co.kr/images/book/xlarge/267/x9788936434267.jpg");
+        put("image", "https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791198363503.jpg");
     } 
 };
 list.add(map);
@@ -32,7 +32,7 @@ map = new HashMap<String, Object>() {
         put("title", "사피엔스"); 
         put("author", "유발 하라리"); 
         put("publisher", "김영사");
-        put("image", "http://image.kyobobook.co.kr/images/book/xlarge/464/x9788934972464.jpg");
+        put("image", "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788934972464.jpg");
     } 
 };
 list.add(map);
@@ -43,7 +43,7 @@ map = new HashMap<String, Object>() {
         put("title", "코스모스"); 
         put("author", "칼 세이건"); 
         put("publisher", "사이언스북");
-        put("image", "http://image.kyobobook.co.kr/images/book/xlarge/892/x9788983711892.jpg");
+        put("image", "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788983711892.jpg");
     } 
 };
 list.add(map);
@@ -54,26 +54,48 @@ map = new HashMap<String, Object>() {
         put("title", "나미야 잡화점의 기적"); 
         put("author", "히가시노 게이고"); 
         put("publisher", "현대문학");
-        put("image", "http://image.kyobobook.co.kr/images/book/xlarge/194/x9788972756194.jpg");
+        put("image", "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791167901484.jpg");
     } 
 };
 list.add(map);
+
+//아래 보여줄 책 한권 구성(map)
+Map<String, Object> targetBook=new HashMap<String, Object>();
+for(Map<String,Object> item :list){
+    if(Integer.valueOf(request.getParameter("id"))==(int)item.get("id")){
+    	targetBook.put("image", item.get("image"));
+    	targetBook.put("title", item.get("title"));
+    	targetBook.put("author", item.get("author"));
+    	targetBook.put("publisher", item.get("publisher"));
+    	
+    	break;
+    }
+}
 %>
-<div class="container">
-	<%
+<div class="container d-flex">
+	<div>
+		<img src='<%= targetBook.get("image")%>' style='width:300px'>
+	</div>
+	<div>
+		<div class='display-2 font-weight-bold'><%= targetBook.get("title")%></div>
+		<div class='display-3 text-info'><%= targetBook.get("author")%></div>
+		<div class='display-4 text-secondary'><%= targetBook.get("publisher")%></div>
+	</div>
+	<%-- <%
     for(Map<String,Object> item :list){
 	    if(item.get("id").toString().equals(request.getParameter("id"))){%>
-	    	<table>
+	    	<table class='text-left'>
 	    		<tr>
-	    		<td>	</td>
+	    		<td><img src='<%= item.get("image")%>' style='width:300px'></td>
 	    		<td>
-			    	<label><%= item.get("title")%></label><br>
-			    	<label><%= item.get("author")%></label><br>
-			    	<label><%= item.get("publisher")%></label><br>
+			    	<label><h1 class='display-2 font-weight-bold'><%= item.get("title")%></h1></label><br>
+			    	<label><h1 class='display-3 text-info '><%= item.get("author")%></h1></label><br>
+			    	<label><h1 class='display-4 text-secondary'><%= item.get("publisher")%></h1></label><br>
 			    </td>
 	    	</table>
 	    <%}
-	 }%>
+	 }%> --%>
+	 
 </div>
 </body>
 </html>
