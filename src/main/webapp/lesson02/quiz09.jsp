@@ -51,15 +51,20 @@
     map = new HashMap<String, String>() {{ put("ch", "121"); put("name", "KBSN 스포츠"); put("category", "스포츠"); } };
     list.add(map);
 %>
-<div class="container ">
-	<h2 class='text-center text-danger'>SK Broadband IPTV</h2>
-	<div class='bg-danger'>
-	 <span style="margin-left:80px;"><a href="/lesson02/quiz09.jsp" style='color: white;'>전체</a></span>
-	 <span style="margin-left:80px;"><a href="/lesson02/quiz09.jsp?search=지상파" style='color: white;'> 지상파</a></span>
-	 <span style="margin-left:80px;"><a href="/lesson02/quiz09.jsp?search=드라마" style='color: white;'>드라마</a></span>
-	 <span style="margin-left:80px;"><a href="/lesson02/quiz09.jsp?search=예능" 	 style='color: white;'>예능</a></span>
-	 <span style="margin-left:80px;"><a href="/lesson02/quiz09.jsp?search=스포츠" style='color: white;'>스포츠</a></span>
-	</div>
+<div id='wrap' class="container ">
+	<header class='text-warning d-flex justify-content-center'>
+		<h2 class='text-center text-danger'>SK Broadband IPTV</h2>
+	</header>
+	<nav class='bg-danger'>
+		<ul class='nav nav-fill w-100'>
+			 <li class='nav-item'><a href="/lesson02/quiz09.jsp"  class='nav-link text-white'>전체</a></li>
+			 <li class='nav-item'><a href="/lesson02/quiz09.jsp?search=지상파"  class='nav-link text-white'> 지상파</a></li>
+			 <li class='nav-item'><a href="/lesson02/quiz09.jsp?search=드라마"  class='nav-link text-white'>드라마</a></li>
+			 <li class='nav-item'><a href="/lesson02/quiz09.jsp?search=예능"   class='nav-link text-white'>예능</a></li>
+			 <li class='nav-item'><a href="/lesson02/quiz09.jsp?search=스포츠" class='nav-link text-white'>스포츠</a></li>
+		</ul>
+	 </nav>	
+	 
 	<table class='table text-center'>
 		<thead>
 			<tr>
@@ -80,6 +85,9 @@
 			<%} %>
 		</tbody>
 	</table>
+	<footer class='d-flex justify-content-center'> 
+    	<span class='text-center'>copyright 2021. marondal all copyrights Reserved</span>
+    </footer>
 </div>
 </body>
 </html>
