@@ -94,6 +94,7 @@
     
     String searchbox=request.getParameter("searchbox");
     
+    
     List<Map<String, Object>> albumList = new ArrayList<>();
     Map<String, Object> albumInfo = new HashMap<>();
     int bNext=0;
@@ -101,7 +102,7 @@
     	bNext=0;
     	if(searchbox!=null){
     		if(searchbox.equalsIgnoreCase(item.get("title").toString()) || searchbox.equalsIgnoreCase(item.get("singer").toString())  
-    		|| searchbox.equalsIgnoreCase(item.get("album").toString()) || searchbox.matches(item.get("composer").toString()) 
+    		|| searchbox.equalsIgnoreCase(item.get("album").toString()) || searchbox.contains(item.get("composer").toString()) 
     		|| searchbox.equalsIgnoreCase(item.get("lyricist").toString())){
     			bNext=1;
     		}
@@ -110,12 +111,15 @@
     		bNext=1;
     	}
     	if(bNext==1){
+    		int minuteSet = (int)item.get("time") / 60;
+    		int secondSet = (int)item.get("time") % 60;
+    		
     		albumInfo = new HashMap<>();
 	    	albumInfo.put("thumbnail", item.get("thumbnail"));
 			albumInfo.put("title", item.get("title"));
 			albumInfo.put("singer", item.get("singer"));
 			albumInfo.put("album", item.get("album"));
-			albumInfo.put("time", item.get("time"));
+			albumInfo.put("time", minuteSet +":"+secondSet);
 			albumInfo.put("composer", item.get("composer"));
 			albumInfo.put("lyricist", item.get("lyricist"));
 			albumList.add(albumInfo);
