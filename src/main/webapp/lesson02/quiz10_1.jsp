@@ -92,16 +92,17 @@
     musicList.add(musicInfo);
     
     String searchbox=request.getParameter("searchbox");
-    
+    if(searchbox==null)
+    	searchbox="";
     
     List<Map<String, Object>> albumList = new ArrayList<>();
     Map<String, Object> albumInfo = new HashMap<>();
     int bNext=0;
     for(Map<String, Object> item : musicList){
     	bNext=0;
-    	if(searchbox!=null){
+    	if(!searchbox.isEmpty()){
     		if(searchbox.equalsIgnoreCase(item.get("title").toString()) || searchbox.equalsIgnoreCase(item.get("singer").toString())  
-    		|| searchbox.equalsIgnoreCase(item.get("album").toString()) || searchbox.contains(item.get("composer").toString()) 
+    		|| searchbox.equalsIgnoreCase(item.get("album").toString()) || item.get("composer").toString().contains(searchbox) 
     		|| searchbox.equalsIgnoreCase(item.get("lyricist").toString())){
     			bNext=1;
     		}
@@ -114,6 +115,7 @@
     		int secondSet = (int)item.get("time") % 60;
     		
     		albumInfo = new HashMap<>();
+    		//albumInfo =item;
 	    	albumInfo.put("thumbnail", item.get("thumbnail"));
 			albumInfo.put("title", item.get("title"));
 			albumInfo.put("singer", item.get("singer"));
@@ -131,7 +133,7 @@
  			<h3 class="text-success">Melong</h3>
  		</div>
 		<div class="input-group mb-3 ml-5">
-		  	<input type="text" name="searchbox" class="form-control col-6" >
+		  	<input type="text" name="searchbox" class="form-control col-6" value="<%=searchbox%>">
 		  	<div class="input-group-append">
 		    	<!-- <button class="btn btn-secondary" type="button">검색</button> -->
 		    	<input type='submit' value='검색' class="btn btn-secondary"></input>
@@ -148,7 +150,7 @@
  			</ul>
 	 </nav>	
 	 <%for(Map<String, Object> album : albumList){ %>
-		 <h2 class='mt-3'>곡정보</h2>
+		 <h2 class='mt-3'>곡 정보</h2>
 		 <section class='contents border border-success'>
 			<div class="d-flex p-3">
 				<div class="mr-3">
@@ -157,13 +159,26 @@
 				<div class="col">
 					<h2><%= album.get("title")%></h2>
 					<h4 class='text-success'><%= album.get("singer")%></h4>
-					<small class="text-secondary mt-3">앨범 <%= album.get("album")%></small><br/>
-					<small class="text-secondary">재생시간 <%= album.get("time")%></small><br/>
-					<small class="text-secondary">작곡가 <%= album.get("composer")%></small><br/>
-					<small class="text-secondary">작사가 <%= album.get("lyricist")%></small><br/>
+					<div class='d-flex text-secondary mt-3'>
+						<div>
+							<div>앨범</div>
+							<div>재생시간</div>
+							<div>작곡가</div>
+							<div>작사가</div>
+						</div>
+						<div class='ml-3'>
+							<div><%= album.get("album")%></div>
+							<div><%= album.get("time")%></div>
+							<div><%= album.get("composer")%></div>
+							<div><%= album.get("lyricist")%></div>
+						</div>
+					</div>
 				</div>
 			</div>
 		 </section>
+		 <h2 class='mt-3'>가사</h2>
+		 <hr>
+		 <div>가사정보 없음</div>
 	<%} %>
 	<footer>
 		<hr>

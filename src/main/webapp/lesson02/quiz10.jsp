@@ -14,16 +14,14 @@
 <body>
 <form method="post" action="/lesson02/quiz10_1.jsp">
 <%
-// 아티스트 정보 
-
+	// 아티스트 정보 
     Map<String, Object> artistInfo = new HashMap<>();
     artistInfo.put("name", "아이유");
     artistInfo.put("debute", 2008);
     artistInfo.put("agency", "EDAM엔터테인먼트");
     artistInfo.put("photo", "http://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/867/444/81867444_1616662460652_1_600x600.JPG");
 
-
-// 아이유 노래 리스트 
+	// 아이유 노래 리스트 
     List<Map<String, Object>> musicList = new ArrayList<>();
 
     Map<String, Object> musicInfo = new HashMap<>();
@@ -100,8 +98,7 @@
 		<div class="input-group mb-3 ml-5">
 		  	<input type="text" name='searchbox' class="form-control col-6" >
 		  	<div class="input-group-append">
-		    	<!-- <button class="btn btn-secondary" type="button" onclick="/lesson02/quiz10_1.jsp">검색</button> -->
-		    	<input type='submit' value='검색' class="btn btn-secondary"></input>
+		    	<button class="btn btn-secondary" type="submit" onclick="/lesson02/quiz10_1.jsp">검색</button>
 		  	</div>
 		</div>
 	</header>
