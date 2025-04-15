@@ -22,8 +22,7 @@
     artistInfo.put("agency", "EDAM엔터테인먼트");
     artistInfo.put("photo", "http://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/867/444/81867444_1616662460652_1_600x600.JPG");
 
-
-// 아이유 노래 리스트 
+	// 아이유 노래 리스트 
     List<Map<String, Object>> musicList = new ArrayList<>();
 
     Map<String, Object> musicInfo = new HashMap<>();
