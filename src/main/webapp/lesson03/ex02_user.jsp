@@ -1,5 +1,6 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.test.common.MysqlService"%>
+<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,33 +12,36 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
 <meta charset="UTF-8">
-<title>즐겨찾기</title>
+<title>사용자목록</title>
 </head>
 <body>
 	<div class="container ">
-		<h1 class='text-center'>즐겨찾기</h1>
+		<h1 class='text-center'>사용자목록</h1>
 		<table class='table text-center'>
 			<thead>
 				<tr>
-					<th>사이트</th>
-					<th>사이트주소</th>
+					<th>번호</th>
+					<th>이름</th>
+					<th>생년월일</th>
+					<th>이메일</th>
+					<th>자기소개</th>
 					<th>삭제</th>
 				</tr>
 			</thead>
 			<tbody>
 			<%
-			//DB연결
 			MysqlService ms=MysqlService.getInstance();
 			ms.connect();
-			
-			String query="select * from favorites order by id desc";
-			ResultSet res=ms.select(query);
-			while(res.next()){
-			%>
+			String s="select * from new_user order by id desc";
+		    ResultSet res=ms.select(s);
+		    while(res.next()){%>
 		    	<tr>
+					<td><%= res.getInt("id") %></td>
 					<td><%= res.getString("name") %></td>
-					<td><a href='<%= res.getString("url") %>' target='_blank'><%= res.getString("url") %></a></td>
-					<td><a href='/lesson03/delete-quiz02?id=<%=res.getInt("id")%>'>삭제</a></td>
+					<td><%= res.getString("yyyymmdd") %></td>
+					<td><%= res.getString("email") %></td>
+					<td><%= res.getString("introduce") %></td>
+					<td><a href='/lesson03/delete-ex02?id=<%=res.getInt("id")%>'>삭제</a></td>
 				</tr>
 		    <%}%>
 			</tbody>

@@ -10,22 +10,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.test.common.MysqlService;
 
-@WebServlet("/lesson03/insert-ex02")
-public class InsertEx02Servlet extends HttpServlet {
+@WebServlet("/lesson03/delete-quiz02")
+public class DeleteQuiz02Servlet extends HttpServlet {
  @Override
- public void doPost(HttpServletRequest request,HttpServletResponse response) {
+ public void doGet(HttpServletRequest request,HttpServletResponse response) {
 	 //response header 세팅 생략
 	 //request parameter 
-	 String name=request.getParameter("name"); 				//이름
-	 String yyyymmdd=request.getParameter("yyyymmdd"); 		//생년월일
-	 String email=request.getParameter("email"); 			//이메일
-	 String introduce=request.getParameter("introduce"); 	//자기소개
-	 
+	 int id=0;
+	 if(request.getParameter("id")!=null) {
+		 id=Integer.parseInt(request.getParameter("id")); 		//id
+	 }
 	 //db연결
 	 MysqlService ms=MysqlService.getInstance();
 	 ms.connect();
 	 
-	 String s="insert into new_user (name,yyyymmdd,email,introduce) values('"+name+"','"+yyyymmdd+"','"+email+"','"+introduce+"')";
+	 String s="delete from favorites where id="+id;
 	 try {
 		ms.update(s);
 	 } catch (SQLException e) {
@@ -35,9 +34,9 @@ public class InsertEx02Servlet extends HttpServlet {
 	 //db연결해제
 	 ms.disconnet();
 	 
-	 //유저목록화면으로 redirect
+	 //즐겨찾기 목록화면으로 redirect
 	 try {
-		response.sendRedirect("/lesson03/ex02_user.jsp");
+		response.sendRedirect("/lesson03/quiz02.jsp");
 	 } catch (IOException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
